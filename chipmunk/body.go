@@ -23,7 +23,7 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// #include <chipmunk.h>
+// #include <chipmunk/chipmunk.h>
 // #include "body.h"
 import "C"
 
@@ -109,7 +109,7 @@ func BodyStaticNew() Body {
 
 // EachArbiter calls a callback function once for each arbiter which is currently
 // active on the body.
-func (b Body) EachArbiter(iter func(Body, Shape)) {
+func (b Body) EachArbiter(iter func(Body, Arbiter)) {
   p := unsafe.Pointer(&iter)
   C.body_each_arbiter(b.c(), p)
 }
